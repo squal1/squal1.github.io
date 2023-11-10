@@ -242,21 +242,6 @@
                 </div>
             </div>
         </section>
-        <!-- Callout-->
-        <!-- <section class="callout">
-            <div class="container px-4 px-lg-5 text-center">
-                <h2 class="mx-auto mb-5">
-                    Welcome to
-                    <em>your</em>
-                    next website!
-                </h2>
-                <a
-                    class="btn btn-primary btn-xl"
-                    href="https://startbootstrap.com/theme/stylish-portfolio/"
-                    >Download Now!</a
-                >
-            </div>
-        </section> -->
         <!-- Portfolio-->
         <!-- After click -> modal, tech stack, time, detailed description, github link, photo -->
         <section class="content-section" id="portfolio">
@@ -337,6 +322,30 @@
                         </a>
                     </div>
                 </div>
+                <!-- Modal -->
+                <div
+                    class="modal fade"
+                    id="projectModal"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="projectModalLabel"
+                    aria-hidden="true"
+                >
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5
+                                    class="modal-title"
+                                    id="projectModalLabel"
+                                ></h5>
+                            </div>
+                            <div class="modal-body" id="projectModalBody">
+                                <!-- Content will be dynamically loaded here -->
+                            </div>
+                            <div class="modal-footer"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- Call to Action-->
@@ -348,7 +357,7 @@
             </div>
         </section>
         <!-- Map-->
-        <div class="map" id="contact">
+        <!-- <div class="map" id="contact">
             <iframe
                 src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"
             ></iframe>
@@ -358,7 +367,7 @@
                     href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"
                 ></a
             ></small>
-        </div>
+        </div> -->
         <!-- Footer-->
         <footer class="footer text-center">
             <div class="container px-4 px-lg-5">
@@ -366,21 +375,14 @@
                     <li class="list-inline-item">
                         <a
                             class="social-link rounded-circle text-white mr-3"
-                            href="#!"
-                            ><i class="icon-social-facebook"></i
-                        ></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a
-                            class="social-link rounded-circle text-white mr-3"
-                            href="#!"
-                            ><i class="icon-social-twitter"></i
+                            href="https://www.linkedin.com/in/schau0713/"
+                            ><i class="icon-social-linkedin"></i
                         ></a>
                     </li>
                     <li class="list-inline-item">
                         <a
                             class="social-link rounded-circle text-white"
-                            href="#!"
+                            href="https://github.com/squal1"
                             ><i class="icon-social-github"></i
                         ></a>
                     </li>
@@ -398,5 +400,69 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+        <script>
+            // Script to handle modal content when clicking on a portfolio item
+            $(document).ready(function () {
+                $(".portfolio-item").click(function () {
+                    // Get data from the clicked portfolio item
+                    var projectName = $(this).find(".h1").text();
+                    var projectDescription = $(this).find("p").text();
+
+                    // Set modal title
+                    $("#projectModalLabel").text(projectName);
+
+                    // Set modal content based on the clicked item
+                    var projectContent = getProjectContent(projectName);
+                    $("#projectModalBody").html(projectContent);
+
+                    // Show the modal
+                    $("#projectModal").modal("show");
+                });
+
+                // Function to get project content based on project name
+                function getProjectContent(projectName) {
+                    switch (projectName) {
+                        case "Jchannel":
+                            return `
+                                <p>Details about Jchannel project.</p>
+                                <p><strong>Project Date:</strong> January 2022</p>
+                                <p><strong>Repository:</strong> <a href="https://github.com/yourusername/jchannel" target="_blank">Jchannel on GitHub</a></p>
+                                <p><strong>Detailed Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac lorem non nulla consectetur bibendum.</p>
+                                <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, Node.js</p>
+                            `;
+                        case "Devlytics":
+                            return `
+                                <p>Details about Devlytics project.</p>
+                                <p><strong>Project Date:</strong> March 2022</p>
+                                <p><strong>Repository:</strong> <a href="https://github.com/yourusername/devlytics" target="_blank">Devlytics on GitHub</a></p>
+                                <p><strong>Detailed Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac lorem non nulla consectetur bibendum.</p>
+                                <p><strong>Tech Stack:</strong> Python, Flask, AI/ML</p>
+                            `;
+                        case "AI tools":
+                            return `
+                                <p>Details about AI tools project.</p>
+                                <p><strong>Project Date:</strong> May 2022</p>
+                                <p><strong>Repository:</strong> <a href="https://github.com/yourusername/ai-tools" target="_blank">AI tools on GitHub</a></p>
+                                <p><strong>Detailed Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac lorem non nulla consectetur bibendum.</p>
+                                <p><strong>Tech Stack:</strong> Python, TensorFlow, React</p>
+                            `;
+                        case "BirdNET Research":
+                            return `
+                                <p>Details about BirdNET Research project.</p>
+                                <p><strong>Project Date:</strong> August 2022</p>
+                                <p><strong>Repository:</strong> <a href="https://github.com/yourusername/birdnet-research" target="_blank">BirdNET Research on GitHub</a></p>
+                                <p><strong>Detailed Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac lorem non nulla consectetur bibendum.</p>
+                                <p><strong>Tech Stack:</strong> Java, Spring Boot, React</p>
+                            `;
+                        default:
+                            return "<p>No details available.</p>";
+                    }
+                }
+            });
+        </script>
     </body>
 </html>
