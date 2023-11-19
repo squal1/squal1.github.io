@@ -51,13 +51,13 @@
         </nav>
         <!-- Header-->
         <header class="masthead d-flex align-items-center">
-            <div class="container px-4 px-lg-5 text-center">
+            <div class="container px-4 px-lg-5 text-center text-black">
                 <h1 class="mb-1">Hello,</h1>
                 <h1 class="mb-1">I'm Stephen Chau</h1>
                 <h3 class="mb-5">
                     <em>and I'm into web development!</em>
                 </h3>
-                <a class="btn btn-primary btn-xl" href="#about"
+                <a class="btn btn-primary btn-xl bg-black" href="#about"
                     >Know more about me</a
                 >
             </div>
@@ -352,8 +352,12 @@
         <section class="content-section bg-primary text-white">
             <div class="container px-4 px-lg-5 text-center">
                 <h2 class="mb-4">Download my resume here!</h2>
-                <a class="btn btn-xl btn-light me-4" href="#!">Download</a>
-                <a class="btn btn-xl btn-dark" href="#!">View</a>
+                <a
+                    class="btn btn-xl btn-light me-4"
+                    href=".\assets\Stephen Chau.pdf"
+                    download=".\assets\Stephen Chau.pdf"
+                    >Download</a
+                >
             </div>
         </section>
         <!-- Map-->
@@ -403,66 +407,5 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-        <script>
-            // Script to handle modal content when clicking on a portfolio item
-            $(document).ready(function () {
-                $(".portfolio-item").click(function () {
-                    // Get data from the clicked portfolio item
-                    var projectName = $(this).find(".h1").text();
-                    var projectDescription = $(this).find("p").text();
-
-                    // Set modal title
-                    $("#projectModalLabel").text(projectName);
-
-                    // Set modal content based on the clicked item
-                    var projectContent = getProjectContent(projectName);
-                    $("#projectModalBody").html(projectContent);
-
-                    // Show the modal
-                    $("#projectModal").modal("show");
-                });
-
-                // Function to get project content based on project name
-                function getProjectContent(projectName) {
-                    switch (projectName) {
-                        case "Jchannel":
-                            return `
-                                <h4>Details about Jchannel project.</h4>
-                                <p><strong>Project Date:</strong> January 2022</p>
-                                <p><strong>Repository:</strong> <a href="https://github.com/yourusername/jchannel" target="_blank">Jchannel on GitHub</a></p>
-                                <p><strong>Detailed Description:</strong> A online forum just for Jessup comminuty.</p>
-                                <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, Node.js</p>
-                            `;
-                        case "Devlytics":
-                            return `
-                                <h4>Details about Devlytics project.</h4>
-                                <p><strong>Project Date:</strong> March 2022</p>
-                                <p><strong>Repository:</strong> <a href="https://github.com/yourusername/devlytics" target="_blank">Devlytics on GitHub</a></p>
-                                <p><strong>Detailed Description:</strong> A web tool for company recruiters to short list candidates effectively by analyzing programming experiences in GitHub.</p>
-                                <p><strong>Tech Stack:</strong> Python, Flask, AI/ML</p>
-                            `;
-                        case "AI tools":
-                            return `
-                                <h4>Details about AI tools project.</h4>
-                                <p><strong>Project Date:</strong> May 2022</p>
-                                <p><strong>Repository:</strong> <a href="https://github.com/yourusername/ai-tools" target="_blank">AI tools on GitHub</a></p>
-                                <p><strong>Detailed Description:</strong> Visualize neural network.</p>
-                                <p><strong>Tech Stack:</strong> Python, TensorFlow, React</p>
-                            `;
-                        case "BirdNET Research":
-                            return `
-                                <h4>Details about BirdNET Research project.</h4>
-                                <p><strong>Project Date:</strong> August 2022</p>
-                                <p><strong>Repository:</strong> <a href="https://github.com/yourusername/birdnet-research" target="_blank">BirdNET Research on GitHub</a></p>
-                                <p><strong>Detailed Description:</strong> Run tests with BirdNET and evaluate it's performance.</p>
-                                <p><strong>Tech Stack:</strong> Java, Spring Boot, React</p>
-                            `;
-                        default:
-                            return "<p>No details available.</p>";
-                    }
-                }
-            });
-        </script>
     </body>
 </html>

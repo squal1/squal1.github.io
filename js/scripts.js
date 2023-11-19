@@ -84,13 +84,34 @@ window.addEventListener("DOMContentLoaded", (event) => {
     function getProjectContent(projectName) {
         switch (projectName) {
             case "Jchannel":
-                return "<p>Details about Jchannel project.</p>";
+                return `
+                                <h4>Details about Jchannel project.</h4>
+                                <p><strong>Project Date:</strong> March 2022 - September 2022</p>
+                                <p><strong>Repository:</strong> <a href="https://github.com/squal1/jchannel" target="_blank">Jchannel on GitHub</a></p>
+                                <p><strong>Detailed Description:</strong> A online forum just for Jessup comminuty inspired from LIHKG.</p>
+                                <p><strong>Tech Stack:</strong>MERN, OAuth2, JWT, TinyMCE</p>
+                            `;
             case "Devlytics":
-                return "<p>Details about Devlytics project.</p>";
+                return `
+                                <h4>Details about Devlytics project.</h4>
+                                <p><strong>Project Date:</strong> April 2023 - August 2023</p>
+                                <p><strong>Detailed Description:</strong> A web tool for company recruiters to short list candidates effectively by analyzing programming experiences in GitHub.</p>
+                                <p><strong>Tech Stack:</strong>MERN, chartjs, Docker</p>
+                            `;
             case "AI tools":
-                return "<p>Details about AI tools project.</p>";
+                return `
+                                <h4>Details about AI tools project.</h4>
+                                <p><strong>Project Date:</strong> October 2023 - Current</p>
+                                <p><strong>Detailed Description:</strong> Visualize neural network.</p>
+                                <p><strong>Tech Stack:</strong>React, Cytoscape, chartjs</p>
+                            `;
             case "BirdNET Research":
-                return "<p>Details about BirdNET Research project.</p>";
+                return `
+                                <h4>Details about BirdNET Research project.</h4>
+                                <p><strong>Project Date:</strong> August 2023 - Current</p>
+                                <p><strong>Detailed Description:</strong> Run tests with BirdNET and evaluate it's performance.</p>
+                                <p><strong>Tech Stack:</strong>Python, Bash, Google Cloud</p>
+                            `;
             default:
                 return "<p>No details available.</p>";
         }
